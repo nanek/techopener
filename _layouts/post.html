@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<div>
+  <article class="hentry" role="article">
+  <header>
+    <h1 class="entry-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
+    {% unless page.meta == false %}
+      <p class="meta">
+        {{ page.date | date: "%B %d, %Y" }}
+        {% if site.disqus_short_name and page.comments != false and site.disqus_show_comment_count == true %}
+         | <a href="{{ post.url }}#disqus_thread">Comments</a>
+        {% endif %}
+      </p>
+    {% endunless %}
+    </header>
+    <div class="entry-content">{{ content }}</div>
+   <footer>
+    <p class="meta">
+      {% include post/author.html %}
+      <time>{{ page.date | date: "%B %d, %Y" }}</time>
+      {% include post/categories.html %}
+    </p>
+    <p class="meta">
+      {% if page.previous.url %}
+        <a class="basic-alignment left" href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a>
+      {% endif %}
+      {% if page.next.url %}
+        <a class="basic-alignment right" href="{{page.next.url}}" title="Next Post: {{page.next.title}}">{{page.next.title}} &raquo;</a>
+      {% endif %}
+    </p>
+  </footer>
+  </article>
+{% if site.disqus_short_name and page.comments == true %}
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
+  </section>
+{% endif %}
+</div>

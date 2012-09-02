@@ -1,0 +1,36 @@
+auto: true
+server: true
+permalink: /blog/:year/:month/:title/
+baseurl: ""
+exclude:
+- .gitignore
+- README.md
+markdown: rdiscount
+title: Tech Opener
+subtitle: "Let's share more"
+simple_search: http://google.com/search
+
+# Github requirements
+safe: true
+pygments: true
+
+# RSS Feed
+#subscribe_rss: /atom.xml
+subscribe_rss: http://feeds.feedburner.com/TechOpener
+
+# Disqus Comments
+disqus_short_name: techopener
+disqus_show_comment_count: false
+
+# Google Analytics
+google_analytics_tracking_id: UA-21779145-1
+
+# Prose.io
+prose:
+  rooturl: "_posts"
+  metadata:
+    _posts/blog: |
+      published: false
+      layout: blog
+      title: Your Post Title
+      categories:

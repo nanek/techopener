@@ -1,0 +1,59 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='icon' href='{{site.baseurl}}/images/favicon.png'>
+    <link rel='stylesheet' href='{{site.baseurl}}/screen.css'>
+    <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
+    {% include google_analytics.html %}
+
+    <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+    <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  </head>
+  <body class="collapse-sidebar">
+    <header role="banner">
+    <hgroup>
+    <h1><a href="{{ root_url }}/">{{ site.title }}</a></h1>
+    {% if site.subtitle %}
+    <h2>{{ site.subtitle }}</h2>
+    {% endif %}
+    </hgroup>
+    </header>
+    <nav role="navigation">
+    <ul class="subscription" data-subscription="rss">
+      <li><a href="{{ site.subscribe_rss }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+    </ul>
+    {% if site.simple_search %}
+    <form action="{{ site.simple_search }}" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:{{ site.url }}" />
+        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+    {% endif %}
+    <ul class="main-navigation">
+      <li><a href="/">Blog</a></li>
+      <li><a href="/blog/archives">Archives</a></li>
+    </ul>
+    </nav>
+    <div id="main">
+      <div id="content">
+        {{content}}
+      </div>
+    </div>
+    <footer role="contentinfo">
+    Copyright &copy; 2012 - Kenan Shifflett -
+    <span class="credit">Built using <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Theme from <a href="http://octopress.org" target="_blank">Octopress</a>. Edited with <a href="http://prose.io/" target="_blank">Prose.io</a>. Hosted by <a href="http://github.com/" target="_blank">Github</a>.</span>
+    </footer>
+  </body>
+</html>
